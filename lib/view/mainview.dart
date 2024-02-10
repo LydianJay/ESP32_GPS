@@ -1,5 +1,3 @@
-import 'dart:collection';
-
 import 'package:flutter/material.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:gpsapp/view/mapview.dart';
@@ -50,14 +48,49 @@ class _MainViewState extends State<MainView> {
     });
 
     List<TableRow> rows = [];
-    rows.add(const TableRow(children: [Text('Latitude'), Text('Longitude')]));
+    rows.add(const TableRow(children: [
+      Text(
+        'Latitude',
+        textAlign: TextAlign.center,
+        style: TextStyle(
+          fontFamily: 'Calibre',
+          fontSize: 24,
+          fontWeight: FontWeight.bold,
+        ),
+      ),
+      Text(
+        'Longitude',
+        textAlign: TextAlign.center,
+        style: TextStyle(
+          fontFamily: 'Calibre',
+          fontSize: 24,
+          fontWeight: FontWeight.bold,
+        ),
+      )
+    ]));
+
+    const st = TextStyle(fontFamily: 'Arial', fontSize: 18);
 
     for (var i = 0; i < latValues.length; i++) {
       rows.add(
         TableRow(
           children: [
-            Text(latValues[i].toString()),
-            Text(lonValues[i].toString()),
+            Padding(
+              padding: const EdgeInsets.all(5.0),
+              child: Text(
+                latValues[i].toString(),
+                style: st,
+                textAlign: TextAlign.center,
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(5.0),
+              child: Text(
+                lonValues[i].toString(),
+                style: st,
+                textAlign: TextAlign.center,
+              ),
+            ),
           ],
         ),
       );
@@ -68,7 +101,7 @@ class _MainViewState extends State<MainView> {
         1: FlexColumnWidth(),
       },
       defaultVerticalAlignment: TableCellVerticalAlignment.middle,
-      border: TableBorder.all(color: Colors.black),
+      border: TableBorder.all(color: Colors.black, width: 2.5),
       children: rows,
     );
   }
@@ -85,6 +118,7 @@ class _MainViewState extends State<MainView> {
             padding:
                 const EdgeInsets.only(top: 20, bottom: 10, left: 5, right: 5),
             margin: const EdgeInsets.all(10),
+            height: scrHeight,
             decoration: const BoxDecoration(
               color: Color.fromARGB(204, 210, 237, 248),
               borderRadius: BorderRadius.all(Radius.circular(15)),

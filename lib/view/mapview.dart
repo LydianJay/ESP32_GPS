@@ -82,7 +82,7 @@ class _MapViewState extends State<MapView> {
         ),
         CurrentLocationLayer(
           alignPositionOnUpdate: AlignOnUpdate.always,
-          alignDirectionOnUpdate: AlignOnUpdate.always,
+          alignDirectionOnUpdate: AlignOnUpdate.never,
           style: const LocationMarkerStyle(
             marker: DefaultLocationMarker(
               child: Icon(
