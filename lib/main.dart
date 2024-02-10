@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:gpsapp/view/mapview.dart';
 import 'package:gpsapp/view/mainview.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:firebase_database/firebase_database.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
