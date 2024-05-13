@@ -38,7 +38,7 @@ class _MapViewState extends State<MapView> {
       listMarkers.add(
         Marker(
           point: LatLng(widget.lat[i], widget.lon[i]),
-          child: const Icon(Icons.motorcycle_rounded),
+          child: const Icon(Icons.car_rental),
           width: 85,
           height: 85,
           rotate: true,
@@ -51,8 +51,8 @@ class _MapViewState extends State<MapView> {
   @override
   Widget build(BuildContext context) {
     return FlutterMap(
-      options: const MapOptions(
-        initialCenter: LatLng(9.757131, 125.513763),
+      options: MapOptions(
+        initialCenter: LatLng(widget.lat.first, widget.lon.first),
         initialZoom: 18.0,
       ),
       children: [
@@ -81,7 +81,7 @@ class _MapViewState extends State<MapView> {
           }),
         ),
         CurrentLocationLayer(
-          alignPositionOnUpdate: AlignOnUpdate.always,
+          alignPositionOnUpdate: AlignOnUpdate.once,
           alignDirectionOnUpdate: AlignOnUpdate.never,
           style: const LocationMarkerStyle(
             marker: DefaultLocationMarker(
